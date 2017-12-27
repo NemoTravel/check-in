@@ -1,0 +1,93 @@
+{
+	"name": "@nemo.travel/check-in",
+	"version": "0.0.1",
+	"description": "Online check-in module",
+	"main": "dist/nemo-check-in.min.js",
+	"scripts": {
+		"eslint": "eslint . --ext .jsx,.jsx",
+		"server": "node server.js",
+		"build": "npm run eslint && cross-env NODE_ENV=production webpack",
+		"build-dev": "cross-env NODE_ENV=dev webpack",
+		"dev": "run-p build-dev server",
+		"prepublish": "npm run eslint && npm run test && npm run build",
+		"test": "jest",
+		"start": "npm run server"
+	},
+	"devDependencies": {
+		"autoprefixer": "^7.1.3",
+		"babel-core": "^6.26.0",
+		"babel-eslint": "^8.0.2",
+		"babel-jest": "^21.2.0",
+		"babel-loader": "^7.1.2",
+		"babel-plugin-transform-decorators-legacy": "^1.3.4",
+		"babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+		"babel-plugin-transform-react-constant-elements": "^6.23.0",
+		"babel-plugin-transform-react-inline-elements": "^6.22.0",
+		"babel-plugin-transform-react-remove-prop-types": "^0.4.8",
+		"babel-plugin-transform-runtime": "^6.23.0",
+		"babel-preset-es2015": "^6.24.1",
+		"babel-preset-react": "^6.24.1",
+		"babel-preset-stage-0": "^6.24.1",
+		"compression": "^1.7.0",
+		"cross-env": "^5.0.5",
+		"css-loader": "^0.28.7",
+		"eslint": "^4.11.0",
+		"eslint-plugin-react": "^7.4.0",
+		"express": "^4.15.4",
+		"extract-text-webpack-plugin": "^3.0.0",
+		"jest": "^21.2.0",
+		"node-sass": "^4.6.1",
+		"npm-run-all": "^4.1.2",
+		"opn": "^5.1.0",
+		"postcss-loader": "^2.0.6",
+		"pre-commit": "^1.2.2",
+		"redux-logger": "^3.0.6",
+		"redux-testkit": "^1.0.6",
+		"resolve-url-loader": "^2.1.0",
+		"sass-loader": "^6.0.6",
+		"style-loader": "^0.18.2",
+		"url-loader": "^0.5.9",
+		"webpack": "^3.5.5"
+	},
+	"dependencies": {
+		"babel-runtime": "^6.26.0",
+		"classnames": "^2.2.5",
+		"promise-polyfill": "^6.0.2",
+		"prop-types": "^15.6.0",
+		"react": "^15.6.1",
+		"react-dom": "^15.6.1",
+		"react-redux": "^5.0.6",
+		"redux": "^3.7.2",
+		"redux-thunk": "^2.2.0",
+		"reselect": "^3.0.1",
+		"whatwg-fetch": "^2.0.3"
+	},
+	"pre-commit": [
+		"eslint",
+		"test"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/NemoTravel/check-in.git"
+	},
+	"author": "Paul Naumov <p.naumov@nemo.travel>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/NemoTravel/check-in/issues"
+	},
+	"homepage": "https://github.com/NemoTravel/check-in#readme",
+	"jest": {
+		"modulePaths": [
+			"/src"
+		],
+		"moduleFileExtensions": [
+			"js",
+			"jsx"
+		],
+		"moduleDirectories": [
+			"node_modules",
+			"src"
+		],
+		"moduleNameMapper": {}
+	}
+}
