@@ -40,7 +40,8 @@ const config = {
 		publicPath: '/dist/',
 
 		// Output file name.
-		filename: `${moduleName}.min.js`
+		filename: `${moduleName}.min.js`,
+		library: 'NemoCheckIn'
 	},
 
 	resolve: {

@@ -6,8 +6,22 @@
 	<title>Online Check-In</title>
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&amp;subset=cyrillic" rel="stylesheet">
 	<link rel="stylesheet" href="nemo-check-in.min.css">
+	<style>
+		.container {
+			width: 1280px;
+			margin: 0 auto;
+		}
+	</style>
 </head>
 <body>
+	<div class="container">
+		<div id="root"></div>
+	</div>
 	<script src="nemo-check-in.min.js"></script>
+	<script>
+		NemoCheckIn.init({
+			rootElement: document.getElementById('root')
+		});
+	</script>
 </body>
 </html>

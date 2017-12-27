@@ -8,8 +8,6 @@ const port = 5555;
 server.use(compression());
 server.use(express.static('./dist'));
 
-let a = 1;
-
 server.get('/', (req, res) => {
 	res.sendFile(path.resolve(__dirname, './dist/index.html'));
 });
