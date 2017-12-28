@@ -9,7 +9,7 @@ import Results from './steps/Results';
 
 class Main extends React.Component {
 	state = {
-		activeStep: 1
+		activeStep: 0
 	};
 
 	steps = [
@@ -17,6 +17,12 @@ class Main extends React.Component {
 		<PassengersChoosing/>,
 		<SeatsSelection/>,
 		<Results/>
+	];
+
+	stepsNextButtons = [
+		'Найти заказ',
+		'Выбрать места',
+		'Пройти регистрацию'
 	];
 
 	stepsLabels = [
@@ -58,11 +64,11 @@ class Main extends React.Component {
 
 						<div>
 							{activeStep !== 0 && activeStep < lastStep ? <Button disabled={activeStep === 0} onClick={this.handleBack}>
-								Back
+								Назад
 							</Button> : null}
 
 							{activeStep < lastStep ? <Button raised color="primary" onClick={this.handleNext}>
-								Next
+								{this.stepsNextButtons[activeStep]}
 							</Button> : null}
 						</div>
 					</div>
