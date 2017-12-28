@@ -9,7 +9,7 @@ import Results from './steps/Results';
 
 class Main extends React.Component {
 	state = {
-		activeStep: 0
+		activeStep: 1
 	};
 
 	steps = [
@@ -40,6 +40,7 @@ class Main extends React.Component {
 
 	render() {
 		const { activeStep } = this.state;
+		const lastStep = this.steps.length - 1;
 
 		return (
 			<div>
@@ -56,11 +57,11 @@ class Main extends React.Component {
 						{this.steps[activeStep]}
 
 						<div>
-							<Button disabled={activeStep === 0} onClick={this.handleBack}>
+							{activeStep !== 0 && activeStep < lastStep ? <Button disabled={activeStep === 0} onClick={this.handleBack}>
 								Back
-							</Button>
+							</Button> : null}
 
-							{activeStep < this.steps.length - 1 ? <Button raised color="primary" onClick={this.handleNext}>
+							{activeStep < lastStep ? <Button raised color="primary" onClick={this.handleNext}>
 								Next
 							</Button> : null}
 						</div>
