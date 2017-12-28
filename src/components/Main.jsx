@@ -1,11 +1,12 @@
 import React from 'react';
 import Stepper, { Step, StepLabel } from 'material-ui/Stepper';
-import Button from 'material-ui/Button';
+import MUIButton from 'material-ui/Button';
 
-import OrderSearching from './steps/OrderSearching';
-import PassengersChoosing from './steps/PassengersChoosing';
-import SeatsSelection from './steps/SeatsSelection';
-import Results from './steps/Results';
+import Button from 'components/ui/Button';
+import OrderSearching from 'components/steps/OrderSearching';
+import PassengersChoosing from 'components/steps/PassengersChoosing';
+import SeatsSelection from 'components/steps/SeatsSelection';
+import Results from 'components/steps/Results';
 
 class Main extends React.Component {
 	state = {
@@ -59,18 +60,16 @@ class Main extends React.Component {
 				</Stepper>
 
 				<div>
+					{this.steps[activeStep]}
+
 					<div>
-						{this.steps[activeStep]}
+						{activeStep !== 0 && activeStep < lastStep ? <MUIButton disabled={activeStep === 0} onClick={this.handleBack}>
+							Назад
+						</MUIButton> : null}
 
-						<div>
-							{activeStep !== 0 && activeStep < lastStep ? <Button disabled={activeStep === 0} onClick={this.handleBack}>
-								Назад
-							</Button> : null}
-
-							{activeStep < lastStep ? <Button raised color="primary" onClick={this.handleNext}>
-								{this.stepsNextButtons[activeStep]}
-							</Button> : null}
-						</div>
+						{activeStep < lastStep ? <Button onClick={this.handleNext}>
+							{this.stepsNextButtons[activeStep]}
+						</Button> : null}
 					</div>
 				</div>
 			</div>
