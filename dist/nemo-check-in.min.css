@@ -1,4 +1,51 @@
-.checkin {
-  font-family: "Open Sans", sans-serif;
-  font-size: inherit;
+.checkin text[class^="MuiStepPosition-text"] {
+  fill: #fff;
+}
+
+.checkin p[class^="MuiFormHelperText-root"] {
+  color: #bbb;
+}
+
+.checkin div[class*="MuiInput-underline"]:hover:before {
+  background-color: #9ed1f9 !important;
+}
+
+.checkin-stepper[class*="MuiStepper-root"] {
+  padding: 24px 0;
+}
+
+.checkin-title {
+  margin-bottom: 15px !important;
+}
+
+.checkin-orderSearching {
+  max-width: 50%;
+}
+
+.checkin-orderSearching__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.checkin-orderSearching__row:not(:last-of-type) {
+  margin-bottom: 25px;
+}
+
+.checkin-orderSearching__input {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.checkin-orderSearching__input:not(:last-of-type) {
+  margin-right: 30px;
+}
+
+.checkin-bottomButtons {
+  margin-top: 30px;
+}
+
+.checkin-bottomButtons__back {
+  margin-right: 15px;
 }

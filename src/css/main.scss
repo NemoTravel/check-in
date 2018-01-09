@@ -1,4 +1,49 @@
 .checkin {
-	font-family: "Open Sans", sans-serif;
-	font-size: inherit;
+	text[class^="MuiStepPosition-text"] {
+		fill: #fff;
+	}
+
+	p[class^="MuiFormHelperText-root"] {
+		color: #bbb;
+	}
+
+	div[class*="MuiInput-underline"]:hover:before {
+		background-color: #9ed1f9 !important;
+	}
+
+	&-stepper[class*="MuiStepper-root"] {
+		padding: 24px 0;
+	}
+
+	&-title {
+		margin-bottom: 15px !important;
+	}
+
+	&-orderSearching {
+		max-width: 50%;
+
+		&__row {
+			display: flex;
+
+			&:not(:last-of-type) {
+				margin-bottom: 25px;
+			}
+		}
+
+		&__input {
+			flex: 1;
+
+			&:not(:last-of-type) {
+				margin-right: 30px;
+			}
+		}
+	}
+
+	&-bottomButtons {
+		margin-top: 30px;
+
+		&__back {
+			margin-right: 15px;
+		}
+	}
 }
