@@ -47,7 +47,7 @@ class PassengersChoosing extends AbstractStep {
 					</FormGroup>
 				</FormControl>
 
-				<div className="checkin-bottomButtons">
+				<div className="checkin-bottomButtons checkin-bottomButtons_passengersChoosing">
 					<MUIButton className="checkin-bottomButtons__back" onClick={this.handleBack}>
 						Назад
 					</MUIButton>
