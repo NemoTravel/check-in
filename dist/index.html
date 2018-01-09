@@ -7,6 +7,30 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
 	<link rel="stylesheet" href="nemo-check-in.min.css">
 	<style>
+		body, html {
+			padding: 0;
+			margin: 0;
+		}
+
+		header {
+			padding: 12px 0;
+			display: flex;
+			background: #fafafa;
+			align-items: center;
+		}
+
+		header div {
+			max-width: 1600px;
+			padding: 0 20px;
+			width: 100%;
+			margin: 0 auto;
+			box-sizing: border-box;
+		}
+
+		header div img {
+			width: 175px;
+		}
+
 		.container {
 			width: 1280px;
 			margin: 0 auto;
@@ -14,9 +38,16 @@
 	</style>
 </head>
 <body>
+	<header>
+		<div>
+			<img src="http://sys.nemo.travel/templates/wurst/f2.0/img/nemo.travel.svg" alt="">
+		</div>
+	</header>
+
 	<div class="container">
 		<div id="root"></div>
 	</div>
+
 	<script src="nemo-check-in.min.js"></script>
 	<script>
 		NemoCheckIn.init({

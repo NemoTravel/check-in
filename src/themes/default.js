@@ -9,7 +9,8 @@ export default {
 		input: {
 			bottomLine: '#e6e6e6'
 		},
-		error: yellow
+		error: yellow,
+		type: 'light'
 	},
 	status: {
 		danger: 'orange'

@@ -10,8 +10,8 @@ export default {
 	800: '#577f27',
 	900: '#47671f',
 	A100: '#ffffff',
-	A200: '#d2f7a3',
-	A400: '#a2df55',
+	A200: '#88c43d',
+	A400: '#94ca51',
 	A700: '#95d04b',
-	'contrastDefaultColor': 'dark'
+	contrastDefaultColor: 'light'
 };

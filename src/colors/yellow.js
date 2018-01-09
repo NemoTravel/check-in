@@ -13,5 +13,5 @@ export default {
 	A200: '#fff1ba',
 	A400: '#ffdd54',
 	A700: '#ffd83a',
-	'contrastDefaultColor': 'dark'
+	contrastDefaultColor: 'dark'
 };

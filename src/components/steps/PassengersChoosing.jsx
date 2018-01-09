@@ -5,32 +5,58 @@ import {
 	FormControlLabel
 } from 'material-ui/Form';
 import Checkbox from 'material-ui/Checkbox';
+import MUIButton from 'material-ui/Button';
+import Typography from 'material-ui/Typography';
+import PropTypes from 'prop-types';
 
-class PassengersChoosing extends React.Component {
+import Button from 'components/ui/MainButton';
+import AbstractStep from 'components/steps/AbstractStep';
+
+class PassengersChoosing extends AbstractStep {
+	static propTypes = {
+		nextStepHandler: PropTypes.func.isRequired,
+		backStepHandler: PropTypes.func.isRequired
+	};
+
 	render() {
 		return (
-			<FormControl component="fieldset">
-				<FormGroup>
-					<FormControlLabel
-						control={
-							<Checkbox
-								value="gilad"
-							/>
-						}
-						label="Григорьев Олег"
-					/>
+			<div className="checkin-passengersChoosing">
+				<Typography className="checkin-title" type="headline">
+					Выберите пассажиров для регистрации
+				</Typography>
 
-					<FormControlLabel
-						control={
-							<Checkbox
-								value="jason"
-							/>
-						}
-						label="Григорьева Ольга"
-					/>
-				</FormGroup>
-			</FormControl>
+				<FormControl component="fieldset">
+					<FormGroup>
+						<FormControlLabel
+							control={
+								<Checkbox
+									value="gilad"
+								/>
+							}
+							label="Григорьев Олег"
+						/>
 
+						<FormControlLabel
+							control={
+								<Checkbox
+									value="jason"
+								/>
+							}
+							label="Григорьева Ольга"
+						/>
+					</FormGroup>
+				</FormControl>
+
+				<div className="checkin-bottomButtons">
+					<MUIButton className="checkin-bottomButtons__back" onClick={this.handleBack}>
+						Назад
+					</MUIButton>
+
+					<Button className="checkin-bottomButtons__next" onClick={this.handleNext}>
+						Далее
+					</Button>
+				</div>
+			</div>
 		);
 	}
 }

@@ -1,28 +1,65 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
+import Typography from 'material-ui/Typography';
+import PropTypes from 'prop-types';
 
-class OrderSearching extends React.Component {
+import Button from 'components/ui/MainButton';
+import AbstractStep from 'components/steps/AbstractStep';
+
+class OrderSearching extends AbstractStep {
+	static propTypes = {
+		nextStepHandler: PropTypes.func.isRequired
+	};
+
+	handleNext() {
+		this.props.nextStepHandler();
+	}
+
 	render() {
-		return <div>
-			<TextField
-				label="Фамилия"
-				helperText="Фамилия одного из пассажиров"
-			/>
+		return <div className="checkin-orderSearching">
+			<Typography className="checkin-title" type="headline">
+				Укажите данные о заказе
+			</Typography>
 
-			<TextField
-				label="Номер билета"
-				helperText="Номер билета пассажира"
-			/>
+			<div className="checkin-orderSearching__rows">
+				<div className="checkin-orderSearching__row">
+					<TextField
+						InputProps={{ spellCheck: false }}
+						className="checkin-orderSearching__input"
+						helperText="Как в билете"
+						label="Фамилия пассажира"
+					/>
 
-			<TextField
-				label="Дата вылета"
-				helperText="В формате дд.мм.гггг"
-			/>
+					<TextField
+						InputProps={{ spellCheck: false }}
+						className="checkin-orderSearching__input"
+						helperText="13 символов"
+						label="Номер билета"
+					/>
+				</div>
 
-			<TextField
-				label="Номер рейса"
-				helperText="В формате AB-123"
-			/>
+				<div className="checkin-orderSearching__row">
+					<TextField
+						InputProps={{ spellCheck: false }}
+						className="checkin-orderSearching__input"
+						helperText="В формате дд.мм.гггг"
+						label="Дата вылета"
+					/>
+
+					<TextField
+						InputProps={{ spellCheck: false }}
+						className="checkin-orderSearching__input"
+						helperText="В формате AB-123"
+						label="Номер рейса"
+					/>
+				</div>
+			</div>
+
+			<div className="checkin-bottomButtons">
+				<Button className="checkin-bottomButtons__next" onClick={this.handleNext} disabled={false}>
+					Далее
+				</Button>
+			</div>
 		</div>;
 	}
 }

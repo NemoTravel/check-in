@@ -18,7 +18,7 @@ class Button extends React.Component {
 		const { children, classes, ...restProps } = this.props;
 		const defaultProps = {
 			raised: true,
-			color: 'primary',
+			color: 'accent',
 			classes
 		};
 
