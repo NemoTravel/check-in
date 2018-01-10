@@ -2,13 +2,11 @@ import React from 'react';
 import MUIButton from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 import PropTypes from 'prop-types';
-
 import Button from 'components/ui/MainButton';
-import AbstractStep from 'components/steps/AbstractStep';
 
-class SeatsSelection extends AbstractStep {
+class SeatsSelection extends React.Component {
 	static propTypes = {
-		nextStepHandler: PropTypes.func.isRequired,
+		nextStepHandler: PropTypes.func,
 		backStepHandler: PropTypes.func
 	};
 

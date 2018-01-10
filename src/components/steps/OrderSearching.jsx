@@ -2,13 +2,11 @@ import React from 'react';
 import TextField from 'material-ui/TextField';
 import Typography from 'material-ui/Typography';
 import PropTypes from 'prop-types';
-
 import Button from 'components/ui/MainButton';
-import AbstractStep from 'components/steps/AbstractStep';
 
-class OrderSearching extends AbstractStep {
+class OrderSearching extends React.Component {
 	static propTypes = {
-		nextStepHandler: PropTypes.func.isRequired
+		nextStepHandler: PropTypes.func
 	};
 
 	handleNext() {

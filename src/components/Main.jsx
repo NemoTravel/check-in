@@ -1,45 +1,44 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import Stepper from 'components/Stepper';
 import OrderSearching from 'components/steps/OrderSearching';
 import PassengersChoosing from 'components/steps/PassengersChoosing';
 import SeatsSelection from 'components/steps/SeatsSelection';
 
 class Main extends React.Component {
-	state = {
-		activeStep: 0
-	};
-
-	handleNext = () => {
-		this.setState({
-			activeStep: this.state.activeStep + 1
-		});
-	};
-
-	handleBack = () => {
-		this.setState({
-			activeStep: this.state.activeStep - 1
-		});
+	static propTypes = {
+		currentStep: PropTypes.number.isRequired
 	};
 
 	steps = [
-		<OrderSearching nextStepHandler={this.handleNext}/>,
-		<PassengersChoosing nextStepHandler={this.handleNext} backStepHandler={this.handleBack}/>,
-		<SeatsSelection nextStepHandler={this.handleNext} backStepHandler={this.handleBack}/>
+		<OrderSearching/>,
+		<PassengersChoosing/>,
+		<SeatsSelection/>
 	];
 
+	shouldComponentUpdate(nextProps) {
+		return nextProps.currentStep !== this.props.currentStep;
+	}
+
 	render() {
-		const { activeStep } = this.state;
+		const { currentStep } = this.props;
 
 		return (
 			<section className="checkin">
-				<Stepper activeStep={activeStep}/>
+				<Stepper activeStep={currentStep}/>
 
 				<div className="checkin-content">
-					{this.steps[activeStep]}
+					{this.steps[currentStep]}
 				</div>
 			</section>
 		);
 	}
 }
 
-export default Main;
+export default connect(state => {
+	return {
+		currentStep: state.currentStep
+	};
+})(Main);

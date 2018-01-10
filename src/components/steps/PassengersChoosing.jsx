@@ -8,14 +8,12 @@ import Checkbox from 'material-ui/Checkbox';
 import MUIButton from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 import PropTypes from 'prop-types';
-
 import Button from 'components/ui/MainButton';
-import AbstractStep from 'components/steps/AbstractStep';
 
-class PassengersChoosing extends AbstractStep {
+class PassengersChoosing extends React.Component {
 	static propTypes = {
-		nextStepHandler: PropTypes.func.isRequired,
-		backStepHandler: PropTypes.func.isRequired
+		nextStepHandler: PropTypes.func,
+		backStepHandler: PropTypes.func
 	};
 
 	render() {
