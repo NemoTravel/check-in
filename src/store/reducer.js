@@ -1,19 +1,8 @@
-import { NEXT_STEP, PREVIOUS_STEP } from 'store/actions';
+import { combineReducers } from 'redux';
+import orderSearchingReducer from 'store/orderSearching/reducer';
+import currentStepReducer from 'store/currentStep/reducer';
 
-const initialState = {
-	currentStep: 0
-};
-
-const rootReducer = (state = initialState, action) => {
-	switch (action.type) {
-		case NEXT_STEP:
-			return { ...state, currentStep: state.currentStep + 1 };
-
-		case PREVIOUS_STEP:
-			return { ...state, currentStep: state.currentStep - 1 };
-	}
-
-	return state;
-};
-
-export default rootReducer;
+export default combineReducers({
+	currentStep: currentStepReducer,
+	orderSearching: orderSearchingReducer
+});

@@ -7,23 +7,56 @@ import Button from 'components/ui/MainButton';
 
 class OrderSearching extends React.Component {
 	static propTypes = {
-		nextStepHandler: PropTypes.func.isRequired
+		nextStepHandler: PropTypes.func.isRequired,
+		changeDepartureDateHandler: PropTypes.func.isRequired,
+		changeFlightNumberHandler: PropTypes.func.isRequired,
+		changeLastNameHandler: PropTypes.func.isRequired,
+		changeTicketNumberHandler: PropTypes.func.isRequired,
+		lastName: PropTypes.string.isRequired,
+		ticketNumber: PropTypes.string.isRequired,
+		departureDate: PropTypes.object,
+		flightNumber: PropTypes.string.isRequired
 	};
 
 	constructor(props) {
 		super(props);
 		this.handleNext = this.handleNext.bind(this);
+		this.handleLastName = this.handleLastName.bind(this);
+		this.handleDepartureDate = this.handleDepartureDate.bind(this);
+		this.handleFlightNumber = this.handleFlightNumber.bind(this);
+		this.handleTicketNumber = this.handleTicketNumber.bind(this);
 	}
 
 	handleNext() {
 		this.props.nextStepHandler();
 	}
 
-	shouldComponentUpdate() {
-		return false;
+	handleLastName(event) {
+		this.props.changeLastNameHandler(event.target.value);
+	}
+
+	handleDepartureDate(event) {
+		this.props.changeDepartureDateHandler(event.target.value);
+	}
+
+	handleFlightNumber(event) {
+		this.props.changeFlightNumberHandler(event.target.value);
+	}
+
+	handleTicketNumber(event) {
+		this.props.changeTicketNumberHandler(event.target.value);
+	}
+
+	shouldComponentUpdate(nextProps) {
+		return nextProps.lastName !== this.props.lastName ||
+			nextProps.ticketNumber !== this.props.ticketNumber ||
+			nextProps.departureDate !== this.props.departureDate ||
+			nextProps.flightNumber !== this.props.flightNumber;
 	}
 
 	render() {
+		const visibleDepartureDate = this.props.departureDate ? this.props.departureDate : '';
+
 		return <div className="checkin-orderSearching">
 			<Typography className="checkin-title" type="headline">
 				{i18n('step-1__title')}
@@ -36,6 +69,8 @@ class OrderSearching extends React.Component {
 						className="checkin-orderSearching__input"
 						helperText="Как в билете"
 						label="Фамилия пассажира"
+						onChange={this.handleLastName}
+						value={this.props.lastName}
 					/>
 
 					<TextField
@@ -43,6 +78,8 @@ class OrderSearching extends React.Component {
 						className="checkin-orderSearching__input"
 						helperText="13 символов"
 						label="Номер билета"
+						onChange={this.handleTicketNumber}
+						value={this.props.ticketNumber}
 					/>
 				</div>
 
@@ -52,6 +89,8 @@ class OrderSearching extends React.Component {
 						className="checkin-orderSearching__input"
 						helperText="В формате дд.мм.гггг"
 						label="Дата вылета"
+						onChange={this.handleDepartureDate}
+						value={visibleDepartureDate}
 					/>
 
 					<TextField
@@ -59,6 +98,8 @@ class OrderSearching extends React.Component {
 						className="checkin-orderSearching__input"
 						helperText="В формате AB-123"
 						label="Номер рейса"
+						onChange={this.handleFlightNumber}
+						value={this.props.flightNumber}
 					/>
 				</div>
 			</div>
