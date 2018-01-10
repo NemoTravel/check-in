@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Stepper from 'components/Stepper';
-import OrderSearching from 'components/steps/OrderSearching';
+import OrderSearchingContainer from 'containers/OrderSearchingContainer';
 import PassengersChoosing from 'components/steps/PassengersChoosing';
 import SeatsSelection from 'components/steps/SeatsSelection';
 
@@ -13,7 +13,7 @@ class Main extends React.Component {
 	};
 
 	steps = [
-		<OrderSearching/>,
+		<OrderSearchingContainer/>,
 		<PassengersChoosing/>,
 		<SeatsSelection/>
 	];

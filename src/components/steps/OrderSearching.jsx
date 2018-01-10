@@ -6,8 +6,13 @@ import Button from 'components/ui/MainButton';
 
 class OrderSearching extends React.Component {
 	static propTypes = {
-		nextStepHandler: PropTypes.func
+		nextStepHandler: PropTypes.func.isRequired
 	};
+
+	constructor(props) {
+		super(props);
+		this.handleNext = this.handleNext.bind(this);
+	}
 
 	handleNext() {
 		this.props.nextStepHandler();
