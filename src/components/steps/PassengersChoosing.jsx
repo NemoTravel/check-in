@@ -30,6 +30,10 @@ class PassengersChoosing extends React.Component {
 		this.props.backStepHandler();
 	}
 
+	shouldComponentUpdate() {
+		return false;
+	}
+
 	render() {
 		return (
 			<div className="checkin-passengersChoosing">

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Stepper from 'components/Stepper';
 import OrderSearchingContainer from 'containers/OrderSearchingContainer';
 import PassengersChoosingContainer from 'containers/PassengersChoosingContainer';
-import SeatsSelection from 'components/steps/SeatsSelection';
+import SeatsSelectionContainer from 'containers/SeatsSelectionContainer';
 
 class Main extends React.Component {
 	static propTypes = {
@@ -15,7 +15,7 @@ class Main extends React.Component {
 	steps = [
 		<OrderSearchingContainer/>,
 		<PassengersChoosingContainer/>,
-		<SeatsSelection/>
+		<SeatsSelectionContainer/>
 	];
 
 	shouldComponentUpdate(nextProps) {

@@ -18,6 +18,10 @@ class OrderSearching extends React.Component {
 		this.props.nextStepHandler();
 	}
 
+	shouldComponentUpdate() {
+		return false;
+	}
+
 	render() {
 		return <div className="checkin-orderSearching">
 			<Typography className="checkin-title" type="headline">

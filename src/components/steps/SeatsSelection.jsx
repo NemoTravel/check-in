@@ -6,9 +6,27 @@ import Button from 'components/ui/MainButton';
 
 class SeatsSelection extends React.Component {
 	static propTypes = {
-		nextStepHandler: PropTypes.func,
-		backStepHandler: PropTypes.func
+		nextStepHandler: PropTypes.func.isRequired,
+		backStepHandler: PropTypes.func.isRequired
 	};
+
+	constructor(props) {
+		super(props);
+		this.handleNext = this.handleNext.bind(this);
+		this.handleBack = this.handleBack.bind(this);
+	}
+
+	handleNext() {
+		this.props.nextStepHandler();
+	}
+
+	handleBack() {
+		this.props.backStepHandler();
+	}
+
+	shouldComponentUpdate() {
+		return false;
+	}
 
 	render() {
 		return (
