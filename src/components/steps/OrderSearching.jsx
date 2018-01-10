@@ -2,6 +2,7 @@ import React from 'react';
 import TextField from 'material-ui/TextField';
 import Typography from 'material-ui/Typography';
 import PropTypes from 'prop-types';
+import i18n from '@nemo.travel/i18n';
 import Button from 'components/ui/MainButton';
 
 class OrderSearching extends React.Component {
@@ -25,7 +26,7 @@ class OrderSearching extends React.Component {
 	render() {
 		return <div className="checkin-orderSearching">
 			<Typography className="checkin-title" type="headline">
-				Укажите данные о заказе
+				{i18n('step-1__title')}
 			</Typography>
 
 			<div className="checkin-orderSearching__rows">
@@ -64,7 +65,7 @@ class OrderSearching extends React.Component {
 
 			<div className="checkin-bottomButtons">
 				<Button className="checkin-bottomButtons__next" onClick={this.handleNext} disabled={false}>
-					Далее
+					{i18n('step-1__nextButton')}
 				</Button>
 			</div>
 		</div>;

@@ -1,6 +1,7 @@
 import React from 'react';
 import MUIStepper, { Step, StepLabel } from 'material-ui/Stepper';
 import PropTypes from 'prop-types';
+import i18n from '@nemo.travel/i18n';
 
 class Stepper extends React.Component {
 	static propTypes = {
@@ -8,10 +9,10 @@ class Stepper extends React.Component {
 	};
 
 	stepsLabels = [
-		'Поиск заказа',
-		'Выбор пассажиров',
-		'Выбор мест',
-		'Посадочный талон'
+		i18n('step-1__label'),
+		i18n('step-2__label'),
+		i18n('step-3__label'),
+		i18n('step-4__label')
 	];
 
 	shouldComponentUpdate(nextProps) {
