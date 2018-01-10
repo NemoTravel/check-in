@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import Stepper from 'components/Stepper';
 import OrderSearchingContainer from 'containers/OrderSearchingContainer';
-import PassengersChoosing from 'components/steps/PassengersChoosing';
+import PassengersChoosingContainer from 'containers/PassengersChoosingContainer';
 import SeatsSelection from 'components/steps/SeatsSelection';
 
 class Main extends React.Component {
@@ -14,7 +14,7 @@ class Main extends React.Component {
 
 	steps = [
 		<OrderSearchingContainer/>,
-		<PassengersChoosing/>,
+		<PassengersChoosingContainer/>,
 		<SeatsSelection/>
 	];
 

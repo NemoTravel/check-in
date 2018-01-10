@@ -11,6 +11,10 @@ class OrderSearchingContainer extends React.Component {
 		nextStep: PropTypes.func.isRequired
 	};
 
+	shouldComponentUpdate() {
+		return false;
+	}
+
 	render() {
 		return <OrderSearching nextStepHandler={this.props.nextStep}/>;
 	}
