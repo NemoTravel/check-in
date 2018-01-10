@@ -10,7 +10,7 @@ import {
 	changeFlightNumber,
 	changeLastName,
 	changeTicketNumber
-} from '../store/orderSearching/actions';
+} from 'store/orderSearching/actions';
 
 class OrderSearchingContainer extends React.Component {
 	static propTypes = {

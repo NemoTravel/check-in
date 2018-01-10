@@ -4,6 +4,7 @@ import './css/main.scss';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import moment from 'moment';
 import { Provider } from 'react-redux';
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 import i18n from '@nemo.travel/i18n';
@@ -20,6 +21,8 @@ export const init = (config = {}) => {
 	const store = getStore(config);
 	const themeObject = require('./themes/default').default;
 	const theme = createMuiTheme(themeObject);
+
+	moment.locale(config.locale);
 
 	i18n.init(localizationStorage);
 

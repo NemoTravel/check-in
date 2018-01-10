@@ -1,9 +1,12 @@
 import React from 'react';
+import moment from 'moment';
+import { DatePicker } from 'material-ui-pickers';
 import TextField from 'material-ui/TextField';
 import Typography from 'material-ui/Typography';
 import PropTypes from 'prop-types';
 import i18n from '@nemo.travel/i18n';
 import Button from 'components/ui/MainButton';
+import DateRange from 'material-ui-icons/DateRange';
 
 class OrderSearching extends React.Component {
 	static propTypes = {
@@ -35,8 +38,8 @@ class OrderSearching extends React.Component {
 		this.props.changeLastNameHandler(event.target.value);
 	}
 
-	handleDepartureDate(event) {
-		this.props.changeDepartureDateHandler(event.target.value);
+	handleDepartureDate(date) {
+		this.props.changeDepartureDateHandler(date);
 	}
 
 	handleFlightNumber(event) {
@@ -55,7 +58,7 @@ class OrderSearching extends React.Component {
 	}
 
 	render() {
-		const visibleDepartureDate = this.props.departureDate ? this.props.departureDate : '';
+		const visibleDepartureDate = this.props.departureDate ? this.props.departureDate : moment();
 
 		return <div className="checkin-orderSearching">
 			<Typography className="checkin-title" type="headline">
@@ -84,13 +87,20 @@ class OrderSearching extends React.Component {
 				</div>
 
 				<div className="checkin-orderSearching__row">
-					<TextField
+					<DatePicker
 						InputProps={{ spellCheck: false }}
 						className="checkin-orderSearching__input"
 						helperText="В формате дд.мм.гггг"
 						label="Дата вылета"
 						onChange={this.handleDepartureDate}
 						value={visibleDepartureDate}
+						keyboardIcon={<DateRange/>}
+						format={'DD.MM.YYYY'}
+						keyboard={true}
+						disablePast={true}
+						autoOk={true}
+						minDate={moment()}
+						mask={[/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/]}
 					/>
 
 					<TextField
