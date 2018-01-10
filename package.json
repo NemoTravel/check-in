@@ -1,6 +1,6 @@
 {
 	"name": "@nemo.travel/check-in",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"description": "Online check-in module",
 	"main": "dist/nemo-check-in.min.js",
 	"scripts": {
