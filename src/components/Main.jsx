@@ -1,59 +1,44 @@
 import React from 'react';
-import Stepper, { Step, StepLabel } from 'material-ui/Stepper';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import OrderSearching from 'components/steps/OrderSearching';
-import PassengersChoosing from 'components/steps/PassengersChoosing';
-import SeatsSelection from 'components/steps/SeatsSelection';
+import Stepper from 'components/Stepper';
+import OrderSearchingContainer from 'containers/OrderSearchingContainer';
+import PassengersChoosingContainer from 'containers/PassengersChoosingContainer';
+import SeatsSelectionContainer from 'containers/SeatsSelectionContainer';
 
 class Main extends React.Component {
-	state = {
-		activeStep: 0
-	};
-
-	handleNext = () => {
-		this.setState({
-			activeStep: this.state.activeStep + 1
-		});
-	};
-
-	handleBack = () => {
-		this.setState({
-			activeStep: this.state.activeStep - 1
-		});
+	static propTypes = {
+		currentStep: PropTypes.number.isRequired
 	};
 
 	steps = [
-		<OrderSearching nextStepHandler={this.handleNext}/>,
-		<PassengersChoosing nextStepHandler={this.handleNext} backStepHandler={this.handleBack}/>,
-		<SeatsSelection nextStepHandler={this.handleNext} backStepHandler={this.handleBack}/>
+		<OrderSearchingContainer/>,
+		<PassengersChoosingContainer/>,
+		<SeatsSelectionContainer/>
 	];
 
-	stepsLabels = [
-		'Поиск заказа',
-		'Выбор пассажиров',
-		'Выбор мест',
-		'Посадочный талон'
-	];
+	shouldComponentUpdate(nextProps) {
+		return nextProps.currentStep !== this.props.currentStep;
+	}
 
 	render() {
-		const { activeStep } = this.state;
+		const { currentStep } = this.props;
 
 		return (
 			<section className="checkin">
-				<Stepper className="checkin-stepper" activeStep={activeStep}>
-					{this.stepsLabels.map(label => (
-						<Step key={label}>
-							<StepLabel>{label}</StepLabel>
-						</Step>
-					))}
-				</Stepper>
+				<Stepper activeStep={currentStep}/>
 
 				<div className="checkin-content">
-					{this.steps[activeStep]}
+					{this.steps[currentStep]}
 				</div>
 			</section>
 		);
 	}
 }
 
-export default Main;
+export default connect(state => {
+	return {
+		currentStep: state.currentStep
+	};
+})(Main);

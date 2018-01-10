@@ -1,0 +1,18 @@
+{
+	"step-1__label": "Search booking",
+	"step-2__label": "Select passengers",
+	"step-3__label": "Check-In",
+	"step-4__label": "Boarding pass",
+
+	"step-1__title": "Specify order and passenger data",
+	"step-2__title": "Select passengers for check-in",
+	"step-3__title": "Choose desired seats",
+	"step-4__title": "Boarding pass",
+
+	"step-1__nextButton": "Next",
+	"step-2__nextButton": "Next",
+	"step-3__nextButton": "Check-In",
+
+	"step-2__backButton": "Back",
+	"step-3__backButton": "Back"
+}

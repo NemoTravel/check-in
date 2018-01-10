@@ -64,7 +64,7 @@ const config = {
 
 				// Converting JSX and ES6 && ES7 to the common ES5 standart.
 				options: {
-					plugins: [
+					plugins: isDevMode ? [] : [
 						'transform-runtime',
 						'transform-decorators-legacy',
 						'transform-react-remove-prop-types',

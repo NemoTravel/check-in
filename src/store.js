@@ -1,6 +1,5 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-
 import rootReducer from 'store/reducer';
 
 const middlewares = [thunk];
@@ -15,7 +14,7 @@ const enableReduxLogger = (isEnabled = false) => {
 
 /* global process */
 if (process.env.NODE_ENV !== 'production') {
-	enableReduxLogger(false);
+	enableReduxLogger(true);
 }
 
 export const getStore = () => {
