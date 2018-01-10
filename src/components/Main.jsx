@@ -1,6 +1,5 @@
 import React from 'react';
-import Stepper, { Step, StepLabel } from 'material-ui/Stepper';
-
+import Stepper from 'components/Stepper';
 import OrderSearching from 'components/steps/OrderSearching';
 import PassengersChoosing from 'components/steps/PassengersChoosing';
 import SeatsSelection from 'components/steps/SeatsSelection';
@@ -28,25 +27,12 @@ class Main extends React.Component {
 		<SeatsSelection nextStepHandler={this.handleNext} backStepHandler={this.handleBack}/>
 	];
 
-	stepsLabels = [
-		'Поиск заказа',
-		'Выбор пассажиров',
-		'Выбор мест',
-		'Посадочный талон'
-	];
-
 	render() {
 		const { activeStep } = this.state;
 
 		return (
 			<section className="checkin">
-				<Stepper className="checkin-stepper" activeStep={activeStep}>
-					{this.stepsLabels.map(label => (
-						<Step key={label}>
-							<StepLabel>{label}</StepLabel>
-						</Step>
-					))}
-				</Stepper>
+				<Stepper activeStep={activeStep}/>
 
 				<div className="checkin-content">
 					{this.steps[activeStep]}
