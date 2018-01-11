@@ -1,22 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
 import Stepper from 'components/Stepper';
-import OrderSearchingContainer from 'containers/OrderSearchingContainer';
-import PassengersChoosingContainer from 'containers/PassengersChoosingContainer';
-import SeatsSelectionContainer from 'containers/SeatsSelectionContainer';
 
 class Main extends React.Component {
 	static propTypes = {
 		currentStep: PropTypes.number.isRequired
 	};
-
-	steps = [
-		<OrderSearchingContainer/>,
-		<PassengersChoosingContainer/>,
-		<SeatsSelectionContainer/>
-	];
 
 	shouldComponentUpdate(nextProps) {
 		return nextProps.currentStep !== this.props.currentStep;
@@ -28,10 +18,6 @@ class Main extends React.Component {
 		return (
 			<section className="checkin">
 				<Stepper activeStep={currentStep}/>
-
-				<div className="checkin-content">
-					{this.steps[currentStep]}
-				</div>
 			</section>
 		);
 	}

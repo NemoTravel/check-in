@@ -38,7 +38,7 @@ class PassengersChoosing extends React.Component {
 	render() {
 		return (
 			<div className="checkin-passengersChoosing">
-				<Typography className="checkin-title" type="headline">
+				<Typography className="checkin-title">
 					{i18n('step-2__title')}
 				</Typography>
 

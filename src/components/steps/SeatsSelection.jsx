@@ -32,7 +32,7 @@ class SeatsSelection extends React.Component {
 	render() {
 		return (
 			<div className="checkin-seatsSelection">
-				<Typography className="checkin-title" type="headline">
+				<Typography className="checkin-title">
 					{i18n('step-3__title')}
 				</Typography>
 

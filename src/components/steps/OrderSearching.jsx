@@ -61,14 +61,14 @@ class OrderSearching extends React.Component {
 		const visibleDepartureDate = this.props.departureDate ? this.props.departureDate : moment();
 
 		return <div className="checkin-orderSearching">
-			<Typography className="checkin-title" type="headline">
+			<Typography className="checkin-title">
 				{i18n('step-1__title')}
 			</Typography>
 
 			<div className="checkin-orderSearching__rows">
 				<div className="checkin-orderSearching__row">
 					<TextField
-						InputProps={{ spellCheck: false }}
+						InputProps={{ spellCheck: false, autoFocus: true }}
 						className="checkin-orderSearching__input"
 						helperText="Как в билете"
 						label="Фамилия пассажира"
