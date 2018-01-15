@@ -1,3 +1,6 @@
+import { formIsValid } from 'store/orderSearching/selectors';
+import { nextStep } from 'store/currentStep/actions';
+
 export const CHANGE_LAST_NAME = 'action_change_last_name';
 export const CHANGE_TICKET_NUMBER = 'action_change_ticket_number';
 export const CHANGE_DEPARTURE_DATE = 'action_change_departure_date';
@@ -28,5 +31,18 @@ export const changeFlightNumber = flightNumber => {
 	return {
 		type: CHANGE_FLIGHT_NUMBER,
 		payload: flightNumber
+	};
+};
+
+export const searchOrder = () => {
+	return (dispatch, getState) => {
+		const state = getState();
+
+		if (formIsValid(state)) {
+			dispatch(nextStep());
+		}
+		else {
+			// form data is invalid
+		}
 	};
 };

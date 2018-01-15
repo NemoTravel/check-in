@@ -33,7 +33,7 @@ class Stepper extends React.Component {
 		return (
 			<MUIStepper orientation="vertical" className="checkin-stepper" activeStep={this.props.activeStep}>
 				{this.stepsLabels.map(label => (
-					<Step key={label}>
+					<Step className="checkin-stepper__step" key={label}>
 						<StepLabel>{label}</StepLabel>
 						<StepContent>{this.steps[this.props.activeStep]}</StepContent>
 					</Step>

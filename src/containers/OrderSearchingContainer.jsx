@@ -4,17 +4,19 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import OrderSearching from 'components/steps/OrderSearching';
-import { nextStep } from 'store/currentStep/actions';
+import { formIsValid } from 'store/orderSearching/selectors';
 import {
 	changeDepartureDate,
 	changeFlightNumber,
 	changeLastName,
-	changeTicketNumber
+	changeTicketNumber,
+	searchOrder
 } from 'store/orderSearching/actions';
 
 class OrderSearchingContainer extends React.Component {
 	static propTypes = {
-		nextStep: PropTypes.func.isRequired,
+		formIsValid: PropTypes.bool.isRequired,
+		searchOrder: PropTypes.func.isRequired,
 		changeDepartureDate: PropTypes.func.isRequired,
 		changeFlightNumber: PropTypes.func.isRequired,
 		changeLastName: PropTypes.func.isRequired,
@@ -31,8 +33,9 @@ class OrderSearchingContainer extends React.Component {
 			changeFlightNumberHandler={this.props.changeFlightNumber}
 			changeLastNameHandler={this.props.changeLastName}
 			changeTicketNumberHandler={this.props.changeTicketNumber}
-			nextStepHandler={this.props.nextStep}
+			searchOrderHandler={this.props.searchOrder}
 
+			formIsValid={this.props.formIsValid}
 			lastName={this.props.lastName}
 			ticketNumber={this.props.ticketNumber}
 			departureDate={this.props.departureDate}
@@ -44,6 +47,7 @@ class OrderSearchingContainer extends React.Component {
 export default connect(
 	state => {
 		return {
+			formIsValid: formIsValid(state),
 			lastName: state.orderSearching.lastName,
 			ticketNumber: state.orderSearching.ticketNumber,
 			departureDate: state.orderSearching.departureDate,
@@ -52,7 +56,7 @@ export default connect(
 	},
 	dispatch => {
 		return {
-			nextStep: bindActionCreators(nextStep, dispatch),
+			searchOrder: bindActionCreators(searchOrder, dispatch),
 			changeDepartureDate: bindActionCreators(changeDepartureDate, dispatch),
 			changeFlightNumber: bindActionCreators(changeFlightNumber, dispatch),
 			changeLastName: bindActionCreators(changeLastName, dispatch),

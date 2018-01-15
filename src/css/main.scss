@@ -1,8 +1,4 @@
 .checkin {
-	text[class^="MuiStepPosition-text"] {
-		fill: #fff;
-	}
-
 	p[class^="MuiFormHelperText-root"] {
 		color: #bbb;
 	}
@@ -13,6 +9,14 @@
 
 	&-stepper[class*="MuiStepper-root"] {
 		padding: 24px 0;
+	}
+
+	&-stepper {
+		&__step {
+			svg text {
+				fill: #fff;
+			}
+		}
 	}
 
 	&-title {

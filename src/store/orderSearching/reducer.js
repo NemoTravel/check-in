@@ -1,3 +1,4 @@
+import moment from 'moment';
 import {
 	CHANGE_DEPARTURE_DATE,
 	CHANGE_FLIGHT_NUMBER,
@@ -8,7 +9,7 @@ import {
 const initialState = {
 	lastName: '',
 	ticketNumber: '',
-	departureDate: null,
+	departureDate: moment(),
 	flightNumber: ''
 };
 

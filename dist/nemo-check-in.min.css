@@ -1,7 +1,3 @@
-.checkin text[class^="MuiStepPosition-text"] {
-  fill: #fff;
-}
-
 .checkin p[class^="MuiFormHelperText-root"] {
   color: #bbb;
 }
@@ -12,6 +8,10 @@
 
 .checkin-stepper[class*="MuiStepper-root"] {
   padding: 24px 0;
+}
+
+.checkin-stepper__step svg text {
+  fill: #fff;
 }
 
 .checkin-title {

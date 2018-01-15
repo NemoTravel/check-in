@@ -10,7 +10,8 @@ import DateRange from 'material-ui-icons/DateRange';
 
 class OrderSearching extends React.Component {
 	static propTypes = {
-		nextStepHandler: PropTypes.func.isRequired,
+		formIsValid: PropTypes.bool.isRequired,
+		searchOrderHandler: PropTypes.func.isRequired,
 		changeDepartureDateHandler: PropTypes.func.isRequired,
 		changeFlightNumberHandler: PropTypes.func.isRequired,
 		changeLastNameHandler: PropTypes.func.isRequired,
@@ -31,7 +32,7 @@ class OrderSearching extends React.Component {
 	}
 
 	handleNext() {
-		this.props.nextStepHandler();
+		this.props.searchOrderHandler();
 	}
 
 	handleLastName(event) {
@@ -59,6 +60,13 @@ class OrderSearching extends React.Component {
 
 	render() {
 		const visibleDepartureDate = this.props.departureDate ? this.props.departureDate : moment();
+		const todayMidnight = moment();
+
+		todayMidnight.set('hour', 0);
+		todayMidnight.set('minute', 0);
+		todayMidnight.set('second', 0);
+
+		const dateIsValid = this.props.departureDate.unix() < todayMidnight.unix();
 
 		return <div className="checkin-orderSearching">
 			<Typography className="checkin-title">
@@ -88,6 +96,7 @@ class OrderSearching extends React.Component {
 
 				<div className="checkin-orderSearching__row">
 					<DatePicker
+						error={dateIsValid}
 						InputProps={{ spellCheck: false }}
 						className="checkin-orderSearching__input"
 						helperText="В формате дд.мм.гггг"
@@ -115,7 +124,7 @@ class OrderSearching extends React.Component {
 			</div>
 
 			<div className="checkin-bottomButtons">
-				<Button className="checkin-bottomButtons__next" onClick={this.handleNext} disabled={false}>
+				<Button className="checkin-bottomButtons__next" disabled={!this.props.formIsValid} onClick={this.handleNext}>
 					{i18n('step-1__nextButton')}
 				</Button>
 			</div>
