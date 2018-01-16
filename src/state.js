@@ -3,10 +3,10 @@ import moment from 'moment/moment';
 export const currentStepInitialState = 0;
 
 export const orderSearchingInitialState = {
-	lastName: '',
-	ticketNumber: '',
+	lastName: 'GRIGORIEV',
+	ticketNumber: '01234567890123',
 	departureDate: moment(),
-	flightNumber: ''
+	flightNumber: 'SU-167'
 };
 
 export const passengersChoosingInitialState = {
