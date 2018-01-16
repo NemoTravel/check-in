@@ -13,7 +13,7 @@ const initialState = {
 	flightNumber: ''
 };
 
-const orderSearchingReducer = (state = initialState, action) => {
+const orderSearchingReducer = (state = initialState, action = {}) => {
 	switch (action.type) {
 		case CHANGE_DEPARTURE_DATE:
 			return { ...state, departureDate: action.payload };

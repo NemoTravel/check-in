@@ -4,22 +4,45 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import PassengersChoosing from 'components/steps/PassengersChoosing';
-import { nextStep, previousStep } from 'store/currentStep/actions';
+import { deselectPassenger, selectPassenger, confirmPassengers, clearPassengers } from 'store/passengersChoosing/actions';
+import { getPassengers, formIsValid } from 'store/passengersChoosing/selectors';
 
 class PassengersChoosingContainer extends React.Component {
 	static propTypes = {
-		nextStep: PropTypes.func.isRequired,
-		previousStep: PropTypes.func.isRequired
+		formIsValid: PropTypes.bool.isRequired,
+		passengers: PropTypes.array.isRequired,
+		selectPassenger: PropTypes.func.isRequired,
+		deselectPassenger: PropTypes.func.isRequired,
+		confirmPassengers: PropTypes.func.isRequired,
+		clearPassengers: PropTypes.func.isRequired
 	};
 
 	render() {
-		return <PassengersChoosing nextStepHandler={this.props.nextStep} backStepHandler={this.props.previousStep}/>;
+		return <PassengersChoosing
+			passengers={this.props.passengers}
+			formIsValid={this.props.formIsValid}
+
+			selectPassengerHandler={this.props.selectPassenger}
+			deselectPassengerHandler={this.props.deselectPassenger}
+			confirmPassengersHandler={this.props.confirmPassengers}
+			clearPassengersHandler={this.props.clearPassengers}
+		/>;
 	}
 }
 
-export default connect(null, dispatch => {
-	return {
-		nextStep: bindActionCreators(nextStep, dispatch),
-		previousStep: bindActionCreators(previousStep, dispatch)
-	};
-})(PassengersChoosingContainer);
+export default connect(
+	state => {
+		return {
+			passengers: getPassengers(state),
+			formIsValid: formIsValid(state)
+		};
+	},
+	dispatch => {
+		return {
+			confirmPassengers: bindActionCreators(confirmPassengers, dispatch),
+			selectPassenger: bindActionCreators(selectPassenger, dispatch),
+			deselectPassenger: bindActionCreators(deselectPassenger, dispatch),
+			clearPassengers: bindActionCreators(clearPassengers, dispatch)
+		};
+	}
+)(PassengersChoosingContainer);

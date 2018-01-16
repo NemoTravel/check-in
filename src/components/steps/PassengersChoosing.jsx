@@ -13,26 +13,40 @@ import Button from 'components/ui/MainButton';
 
 class PassengersChoosing extends React.Component {
 	static propTypes = {
-		nextStepHandler: PropTypes.func.isRequired,
-		backStepHandler: PropTypes.func.isRequired
+		formIsValid: PropTypes.bool.isRequired,
+		passengers: PropTypes.array.isRequired,
+		selectPassengerHandler: PropTypes.func.isRequired,
+		deselectPassengerHandler: PropTypes.func.isRequired,
+		confirmPassengersHandler: PropTypes.func.isRequired,
+		clearPassengersHandler: PropTypes.func.isRequired
 	};
 
 	constructor(props) {
 		super(props);
 		this.handleNext = this.handleNext.bind(this);
 		this.handleBack = this.handleBack.bind(this);
+		this.handlePassengerChange = this.handlePassengerChange.bind(this);
 	}
 
 	handleNext() {
-		this.props.nextStepHandler();
+		this.props.confirmPassengersHandler();
 	}
 
 	handleBack() {
-		this.props.backStepHandler();
+		this.props.clearPassengersHandler();
 	}
 
-	shouldComponentUpdate() {
-		return false;
+	handlePassengerChange(event) {
+		if (event.target.checked) {
+			this.props.selectPassengerHandler(event.target.value);
+		}
+		else {
+			this.props.deselectPassengerHandler(event.target.value);
+		}
+	}
+
+	shouldComponentUpdate(nextProps) {
+		return nextProps.formIsValid !== this.props.formIsValid || nextProps.passengers !== this.props.passengers;
 	}
 
 	render() {
@@ -44,23 +58,18 @@ class PassengersChoosing extends React.Component {
 
 				<FormControl component="fieldset">
 					<FormGroup>
-						<FormControlLabel
-							control={
-								<Checkbox
-									value="gilad"
-								/>
-							}
-							label="Григорьев Олег"
-						/>
-
-						<FormControlLabel
-							control={
-								<Checkbox
-									value="jason"
-								/>
-							}
-							label="Григорьева Ольга"
-						/>
+						{this.props.passengers.map(passenger => (
+							<FormControlLabel
+								key={passenger.id}
+								control={
+									<Checkbox
+										onChange={this.handlePassengerChange}
+										value={passenger.id.toString()}
+									/>
+								}
+								label={passenger.name}
+							/>
+						))}
 					</FormGroup>
 				</FormControl>
 
@@ -69,7 +78,7 @@ class PassengersChoosing extends React.Component {
 						{i18n('step-2__backButton')}
 					</MUIButton>
 
-					<Button className="checkin-bottomButtons__next" onClick={this.handleNext}>
+					<Button className="checkin-bottomButtons__next" disabled={!this.props.formIsValid} onClick={this.handleNext}>
 						{i18n('step-2__nextButton')}
 					</Button>
 				</div>
