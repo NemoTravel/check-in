@@ -1,6 +1,6 @@
 import { NEXT_STEP, PREVIOUS_STEP } from 'store/currentStep/actions';
 
-const currentStepReducer = (state = 1, action = {}) => {
+const currentStepReducer = (state = 0, action = {}) => {
 	switch (action.type) {
 		case NEXT_STEP:
 			return state + 1;
