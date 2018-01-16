@@ -1,4 +1,4 @@
-import moment from 'moment';
+import { orderSearchingInitialState } from 'state';
 import {
 	CHANGE_DEPARTURE_DATE,
 	CHANGE_FLIGHT_NUMBER,
@@ -6,14 +6,7 @@ import {
 	CHANGE_TICKET_NUMBER
 } from 'store/orderSearching/actions';
 
-const initialState = {
-	lastName: '',
-	ticketNumber: '',
-	departureDate: moment(),
-	flightNumber: ''
-};
-
-const orderSearchingReducer = (state = initialState, action = {}) => {
+const orderSearchingReducer = (state = orderSearchingInitialState, action = {}) => {
 	switch (action.type) {
 		case CHANGE_DEPARTURE_DATE:
 			return { ...state, departureDate: action.payload };
