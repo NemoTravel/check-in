@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import MUIStepper, { Step, StepLabel } from 'material-ui/Stepper';
 import PropTypes from 'prop-types';
 import i18n from '@nemo.travel/i18n';
 
@@ -32,14 +31,6 @@ class Stepper extends React.Component {
 	render() {
 		return (
 			<Fragment>
-				<MUIStepper className="checkin-stepper" activeStep={this.props.activeStep} >
-					{this.stepsLabels.map(label => (
-						<Step className="checkin-stepper__step" key={label}>
-							<StepLabel>{label}</StepLabel>
-						</Step>
-					))}
-				</MUIStepper>
-
 				<div className="checkin-stepper-content">
 					{this.steps[this.props.activeStep]}
 				</div>

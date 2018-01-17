@@ -14,8 +14,10 @@
   fill: #fff;
 }
 
-.checkin-stepper-content {
-  padding-bottom: 20px;
+.checkin-flightInfo {
+  background: #f7f7f7;
+  padding: 15px 20px;
+  margin-bottom: 20px;
 }
 
 .checkin-title {
@@ -23,7 +25,22 @@
 }
 
 .checkin-orderSearching {
-  max-width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.checkin-orderSearching-form,
+.checkin-orderSearching-conditions {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  padding: 20px;
+  background: #fff;
+}
+
+.checkin-orderSearching-conditions {
+  margin-right: 20px;
 }
 
 .checkin-orderSearching__row {
@@ -47,6 +64,7 @@
 }
 
 .checkin-bottomButtons {
+  text-align: right;
   margin-top: 30px;
 }
 

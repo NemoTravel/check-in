@@ -5,6 +5,7 @@
 	"step-4__label": "Boarding pass",
 
 	"step-1__title": "Specify order and passenger data",
+	"step-1__conditions__title": "Terms and conditions of online check-in",
 	"step-2__title": "Select passengers for check-in",
 	"step-3__title": "Choose desired seats",
 	"step-4__title": "Boarding pass",

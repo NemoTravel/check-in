@@ -19,8 +19,24 @@
 		}
 
 		&-content {
-			padding-bottom: 20px;
 		}
+	}
+
+	&-flightInfo {
+		background: #f7f7f7;
+		padding: 15px 20px;
+		margin-bottom: 20px;
+
+		//&__header {
+		//	display: flex;
+		//	align-items: center;
+		//
+		//	height: 50px;
+		//	padding-left: 20px;
+		//
+		//	background: linear-gradient(to right, #1e4275, #345381);
+		//	border-radius: 4px 4px 0 0;
+		//}
 	}
 
 	&-title {
@@ -28,7 +44,17 @@
 	}
 
 	&-orderSearching {
-		max-width: 50%;
+		display: flex;
+
+		&-form, &-conditions {
+			flex: 1;
+			padding: 20px;
+			background: #fff;
+		}
+
+		&-conditions {
+			margin-right: 20px;
+		}
 
 		&__row {
 			display: flex;
@@ -48,6 +74,7 @@
 	}
 
 	&-bottomButtons {
+		text-align: right;
 		margin-top: 30px;
 
 		&_passengersChoosing {

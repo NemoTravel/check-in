@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import {
 	FormControl,
 	FormGroup,
@@ -9,7 +9,9 @@ import MUIButton from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 import PropTypes from 'prop-types';
 import i18n from '@nemo.travel/i18n';
+
 import Button from 'components/ui/MainButton';
+import FlightInfo from 'components/FlightInfo';
 
 class PassengersChoosing extends React.Component {
 	static propTypes = {
@@ -50,7 +52,9 @@ class PassengersChoosing extends React.Component {
 	}
 
 	render() {
-		return (
+		return <Fragment>
+			<FlightInfo/>
+
 			<div className="checkin-passengersChoosing">
 				<Typography className="checkin-title">
 					{i18n('step-2__title')}
@@ -83,7 +87,7 @@ class PassengersChoosing extends React.Component {
 					</Button>
 				</div>
 			</div>
-		);
+		</Fragment>;
 	}
 }
 
