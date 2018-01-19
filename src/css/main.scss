@@ -1,3 +1,5 @@
+@import "flightInfo";
+
 .checkin {
 	p[class^="MuiFormHelperText-root"] {
 		color: #bbb;
@@ -17,26 +19,6 @@
 				fill: #fff;
 			}
 		}
-
-		&-content {
-		}
-	}
-
-	&-flightInfo {
-		background: #f7f7f7;
-		padding: 15px 20px;
-		margin-bottom: 20px;
-
-		//&__header {
-		//	display: flex;
-		//	align-items: center;
-		//
-		//	height: 50px;
-		//	padding-left: 20px;
-		//
-		//	background: linear-gradient(to right, #1e4275, #345381);
-		//	border-radius: 4px 4px 0 0;
-		//}
 	}
 
 	&-title {
@@ -70,6 +52,22 @@
 			&:not(:last-of-type) {
 				margin-right: 30px;
 			}
+		}
+	}
+
+	&-passengersChoosing {
+		display: flex;
+
+		.checkin-flightInfo {
+			flex-basis: 350px;
+		}
+
+		&-form {
+			padding: 20px;
+			margin-right: 20px;
+
+			flex: 1;
+			background: #fff;
 		}
 	}
 

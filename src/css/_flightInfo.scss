@@ -1,0 +1,169 @@
+.checkin-flightInfo {
+	background: #fff;
+	display: flex;
+	flex-direction: column;
+
+	&-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		padding: 10px 20px;
+		border-bottom: 1px solid #eeee;
+
+		&-location {
+			text-align: center;
+
+			&__time {
+				font-size: 20px;
+				font-weight: 700;
+
+				line-height: 25px;
+				color: #636467;
+			}
+
+			&__code {
+				font-size: 15px;
+				opacity: 0.5;
+
+				line-height: 20px;
+				color: #505050;
+			}
+		}
+
+		&-separator {
+			flex: 1;
+
+			&__routeType, &__flightTime {
+				font-size: 11px;
+				line-height: 20px;
+
+				text-align: center;
+				white-space: nowrap;
+				color: #505050;
+			}
+
+			&__routeType {
+				position: relative;
+				margin: 0 20px;
+				border-bottom: 1px solid #d0d0d0;
+
+				&:after {
+					position: absolute;
+					bottom: -3px;
+					right: -1px;
+
+					height: 4px;
+					width: 4px;
+					transform: rotate(135deg);
+
+					content: '';
+					border-top: 1px solid #d0d0d0;
+					border-left: 1px solid #d0d0d0;
+				}
+			}
+		}
+	}
+
+	&-airline {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex: 1;
+
+		padding: 5px 20px;
+		border-bottom: 1px solid #eeee;
+
+		&__logo {
+			max-height: 30px;
+			max-width: 100px;
+		}
+
+		&__flightNumber, &__aircraft {
+			&-label {
+				font-size: 11px;
+				line-height: 20px;
+				color: #a0a0a0;
+			}
+
+			&-value {
+				font-size: 13px;
+				line-height: 20px;
+				color: #505050;
+
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+		}
+
+		&__flightNumber {
+			&-value {
+				font-weight: 500;
+			}
+		}
+	}
+
+	&-route {
+		&__header {
+			display: flex;
+			padding: 0 20px;
+			border-bottom: 1px solid #eee;
+
+			&-label {
+				font-size: 11px;
+				line-height: 20px;
+				flex-basis: 50%;
+
+				text-align: left;
+				white-space: nowrap;
+				color: #a0a0a0;
+
+				&:last-of-type {
+					padding-left: 20px;
+				}
+			}
+		}
+
+		&__segments {
+			display: flex;
+			align-items: center;
+
+			position: relative;
+			padding: 0 20px;
+
+			&-separator {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 12px;
+				height: 40px;
+				margin: -20px 0 0 -20px;
+
+				&__svg {
+					width: 12px;
+					height: 40px;
+				}
+			}
+		}
+
+		&-segment {
+			padding: 10px 0;
+			flex-basis: 50%;
+
+			&:last-of-type {
+				padding-left: 20px;
+			}
+
+			&__time, &__location {
+				font-size: 13px;
+				line-height: 17px;
+				color: #505050;
+			}
+
+			&__time {
+				font-size: 11px;
+			}
+		}
+	}
+}
