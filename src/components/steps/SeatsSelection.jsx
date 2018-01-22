@@ -11,6 +11,7 @@ import i18n from '@nemo.travel/i18n';
 
 import Button from 'components/ui/MainButton';
 import FlightInfo from 'components/FlightInfo';
+import SeatMap from 'components/SeatMap';
 
 class SeatsSelection extends React.Component {
 	static propTypes = {
@@ -108,55 +109,7 @@ class SeatsSelection extends React.Component {
 								</div>
 
 								<div className="checkin-seatsSelection-passenger-seatsMap__wrapper">
-									<table className="checkin-seatsSelection-passenger-seatsMap-map">
-										<thead>
-											<tr>
-												<th/>
-												<th><Typography>A</Typography></th>
-												<th><Typography>B</Typography></th>
-												<th><Typography>C</Typography></th>
-												<th/>
-												<th><Typography>D</Typography></th>
-												<th><Typography>E</Typography></th>
-												<th><Typography>F</Typography></th>
-												<th/>
-											</tr>
-										</thead>
-
-										<tbody>
-											<tr className="checkin-seatsSelection-passenger-seatsMap-map__row">
-												<td className="checkin-seatsSelection-passenger-seatsMap-map__cell checkin-seatsSelection-passenger-seatsMap-map__cell_rowNumber">
-													<Typography>1</Typography>
-												</td>
-
-												<td className="checkin-seatsSelection-passenger-seatsMap-map__cell">
-													<div className="checkin-seatsSelection-passenger-seatsMap-map-seat checkin-seatsSelection-passenger-seatsMap-map-seat_free"/>
-												</td>
-
-												<td className="checkin-seatsSelection-passenger-seatsMap-map__cell"/>
-
-												<td className="checkin-seatsSelection-passenger-seatsMap-map__cell">
-													<div className="checkin-seatsSelection-passenger-seatsMap-map-seat checkin-seatsSelection-passenger-seatsMap-map-seat_free"/>
-												</td>
-
-												<td className="checkin-seatsSelection-passenger-seatsMap-map__cell"/>
-
-												<td className="checkin-seatsSelection-passenger-seatsMap-map__cell">
-													<div className="checkin-seatsSelection-passenger-seatsMap-map-seat checkin-seatsSelection-passenger-seatsMap-map-seat_free"/>
-												</td>
-
-												<td className="checkin-seatsSelection-passenger-seatsMap-map__cell"/>
-
-												<td className="checkin-seatsSelection-passenger-seatsMap-map__cell">
-													<div className="checkin-seatsSelection-passenger-seatsMap-map-seat checkin-seatsSelection-passenger-seatsMap-map-seat_free"/>
-												</td>
-
-												<td className="checkin-seatsSelection-passenger-seatsMap-map__cell checkin-seatsSelection-passenger-seatsMap-map__cell_rowNumber">
-													<Typography>1</Typography>
-												</td>
-											</tr>
-										</tbody>
-									</table>
+									<SeatMap/>
 								</div>
 							</div>
 						</ExpansionPanelDetails>
