@@ -348,11 +348,19 @@
   -ms-flex-align: center;
   align-items: center;
   position: absolute;
-  width: 100%;
   color: #a0a0a0;
+  left: 383px;
+}
+
+.checkin-seatsSelection-passenger__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .checkin-seatsSelection-passenger-info {
+  -ms-flex-preferred-size: 360px;
+  flex-basis: 360px;
   padding: 0;
   margin: 0;
 }
@@ -366,6 +374,148 @@
   color: #a0a0a0;
   font-size: 15px;
   margin-bottom: 2px;
+}
+
+.checkin-seatsSelection-passenger-seatsMap {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.checkin-seatsSelection-passenger-seatsMap__wrapper {
+  margin-top: 30px;
+  max-height: 400px;
+  overflow-y: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.checkin-seatsSelection-passenger-seatsMap__hints {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.checkin-seatsSelection-passenger-seatsMap-hint {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.checkin-seatsSelection-passenger-seatsMap-hint__seat {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.checkin-seatsSelection-passenger-seatsMap-hint__seat_free {
+  background: #81c3f8;
+}
+
+.checkin-seatsSelection-passenger-seatsMap-hint__seat_selected {
+  background: #88c43d;
+}
+
+.checkin-seatsSelection-passenger-seatsMap-hint__seat_paid {
+  background: #ffd321;
+}
+
+.checkin-seatsSelection-passenger-seatsMap-hint__seat_occupied {
+  background: #a0a0a0;
+}
+
+.checkin-seatsSelection-passenger-seatsMap-hint__label {
+  margin-left: 10px;
+}
+
+.checkin-seatsSelection-passenger-seatsMap-map {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+.checkin-seatsSelection-passenger-seatsMap-map th,
+.checkin-seatsSelection-passenger-seatsMap-map td {
+  width: 20px;
+  height: 20px;
+  padding: 0 0 5px 0;
+  margin: 0;
+}
+
+.checkin-seatsSelection-passenger-seatsMap-map th:not(:first-of-type),
+.checkin-seatsSelection-passenger-seatsMap-map td:not(:first-of-type) {
+  padding: 0 0 5px 5px;
+}
+
+.checkin-seatsSelection-passenger-seatsMap-map th:first-of-type,
+.checkin-seatsSelection-passenger-seatsMap-map td:first-of-type {
+  padding-left: 10px;
+}
+
+.checkin-seatsSelection-passenger-seatsMap-map th:last-of-type,
+.checkin-seatsSelection-passenger-seatsMap-map td:last-of-type {
+  padding-right: 10px;
+}
+
+.checkin-seatsSelection-passenger-seatsMap-map th {
+  padding-top: 10px !important;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.checkin-seatsSelection-passenger-seatsMap-map__row {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+}
+
+.checkin-seatsSelection-passenger-seatsMap-map__cell_rowNumber {
+  vertical-align: top;
+  text-align: center;
+}
+
+.checkin-seatsSelection-passenger-seatsMap-map__cell_rowNumber p {
+  font-size: 13px;
+  color: #a0a0a0;
+}
+
+.checkin-seatsSelection-passenger-seatsMap-map-seat {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.checkin-seatsSelection-passenger-seatsMap-map-seat_free {
+  background: #81c3f8;
+}
+
+.checkin-seatsSelection-passenger-seatsMap-map-seat_selected {
+  background: #88c43d;
+}
+
+.checkin-seatsSelection-passenger-seatsMap-map-seat_paid {
+  background: #ffd321;
+}
+
+.checkin-seatsSelection-passenger-seatsMap-map-seat_occupied {
+  background: #a0a0a0;
 }
 
 .checkin-bottomButtons {

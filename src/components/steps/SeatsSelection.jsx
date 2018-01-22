@@ -51,7 +51,7 @@ class SeatsSelection extends React.Component {
 							<Typography className="checkin-seatsSelection-passenger__seat">Место не выбрано</Typography>
 						</ExpansionPanelSummary>
 
-						<ExpansionPanelDetails>
+						<ExpansionPanelDetails className="checkin-seatsSelection-passenger__inner">
 							<ul className="checkin-seatsSelection-passenger-info">
 								<li className="checkin-seatsSelection-passenger-info-item">
 									<div className="checkin-seatsSelection-passenger-info-item__title">Имя</div>
@@ -83,6 +83,82 @@ class SeatsSelection extends React.Component {
 									<Typography className="checkin-seatsSelection-passenger-info-item__value">{passenger.nationality}</Typography>
 								</li>
 							</ul>
+
+							<div className="checkin-seatsSelection-passenger-seatsMap">
+								<div className="checkin-seatsSelection-passenger-seatsMap__hints">
+									<div className="checkin-seatsSelection-passenger-seatsMap-hint">
+										<div className="checkin-seatsSelection-passenger-seatsMap-hint__seat checkin-seatsSelection-passenger-seatsMap-hint__seat_free"/>
+										<Typography className="checkin-seatsSelection-passenger-seatsMap-hint__label">свободное</Typography>
+									</div>
+
+									<div className="checkin-seatsSelection-passenger-seatsMap-hint">
+										<div className="checkin-seatsSelection-passenger-seatsMap-hint__seat checkin-seatsSelection-passenger-seatsMap-hint__seat_selected"/>
+										<Typography className="checkin-seatsSelection-passenger-seatsMap-hint__label">выбранное</Typography>
+									</div>
+
+									<div className="checkin-seatsSelection-passenger-seatsMap-hint">
+										<div className="checkin-seatsSelection-passenger-seatsMap-hint__seat checkin-seatsSelection-passenger-seatsMap-hint__seat_paid"/>
+										<Typography className="checkin-seatsSelection-passenger-seatsMap-hint__label">платное</Typography>
+									</div>
+
+									<div className="checkin-seatsSelection-passenger-seatsMap-hint">
+										<div className="checkin-seatsSelection-passenger-seatsMap-hint__seat checkin-seatsSelection-passenger-seatsMap-hint__seat_occupied"/>
+										<Typography className="checkin-seatsSelection-passenger-seatsMap-hint__label">занятое</Typography>
+									</div>
+								</div>
+
+								<div className="checkin-seatsSelection-passenger-seatsMap__wrapper">
+									<table className="checkin-seatsSelection-passenger-seatsMap-map">
+										<thead>
+											<tr>
+												<th/>
+												<th><Typography>A</Typography></th>
+												<th><Typography>B</Typography></th>
+												<th><Typography>C</Typography></th>
+												<th/>
+												<th><Typography>D</Typography></th>
+												<th><Typography>E</Typography></th>
+												<th><Typography>F</Typography></th>
+												<th/>
+											</tr>
+										</thead>
+
+										<tbody>
+											<tr className="checkin-seatsSelection-passenger-seatsMap-map__row">
+												<td className="checkin-seatsSelection-passenger-seatsMap-map__cell checkin-seatsSelection-passenger-seatsMap-map__cell_rowNumber">
+													<Typography>1</Typography>
+												</td>
+
+												<td className="checkin-seatsSelection-passenger-seatsMap-map__cell">
+													<div className="checkin-seatsSelection-passenger-seatsMap-map-seat checkin-seatsSelection-passenger-seatsMap-map-seat_free"/>
+												</td>
+
+												<td className="checkin-seatsSelection-passenger-seatsMap-map__cell"/>
+
+												<td className="checkin-seatsSelection-passenger-seatsMap-map__cell">
+													<div className="checkin-seatsSelection-passenger-seatsMap-map-seat checkin-seatsSelection-passenger-seatsMap-map-seat_free"/>
+												</td>
+
+												<td className="checkin-seatsSelection-passenger-seatsMap-map__cell"/>
+
+												<td className="checkin-seatsSelection-passenger-seatsMap-map__cell">
+													<div className="checkin-seatsSelection-passenger-seatsMap-map-seat checkin-seatsSelection-passenger-seatsMap-map-seat_free"/>
+												</td>
+
+												<td className="checkin-seatsSelection-passenger-seatsMap-map__cell"/>
+
+												<td className="checkin-seatsSelection-passenger-seatsMap-map__cell">
+													<div className="checkin-seatsSelection-passenger-seatsMap-map-seat checkin-seatsSelection-passenger-seatsMap-map-seat_free"/>
+												</td>
+
+												<td className="checkin-seatsSelection-passenger-seatsMap-map__cell checkin-seatsSelection-passenger-seatsMap-map__cell_rowNumber">
+													<Typography>1</Typography>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
 						</ExpansionPanelDetails>
 					</ExpansionPanel>
 				))}
