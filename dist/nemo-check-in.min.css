@@ -9,6 +9,34 @@
   flex-direction: column;
 }
 
+.checkin-flightInfo-status__pane {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 10px 0;
+  cursor: pointer;
+  background: #64b5f6;
+  color: #fff;
+}
+
+.checkin-flightInfo-status__pane svg {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+.checkin-flightInfo-status-tooltip div {
+  font-size: 13px;
+  min-height: 25px;
+  line-height: 25px;
+}
+
 .checkin-flightInfo-header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -115,6 +143,7 @@
 }
 
 .checkin-flightInfo-airline__flightNumber-value {
+  text-transform: uppercase;
   font-weight: 500;
 }
 
@@ -257,6 +286,26 @@
 }
 
 .checkin-passengersChoosing-form {
+  padding: 20px;
+  margin-right: 20px;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background: #fff;
+}
+
+.checkin-seatsSelection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.checkin-seatsSelection .checkin-flightInfo {
+  -ms-flex-preferred-size: 350px;
+  flex-basis: 350px;
+}
+
+.checkin-seatsSelection-form {
   padding: 20px;
   margin-right: 20px;
   -webkit-box-flex: 1;

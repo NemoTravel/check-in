@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import {
 	FormControl,
 	FormGroup,
@@ -52,44 +52,42 @@ class PassengersChoosing extends React.Component {
 	}
 
 	render() {
-		return <Fragment>
-			<div className="checkin-passengersChoosing">
-				<div className="checkin-passengersChoosing-form">
-					<Typography className="checkin-title" type="headline">
-						{i18n('step-2__title')}
-					</Typography>
+		return <div className="checkin-passengersChoosing">
+			<div className="checkin-passengersChoosing-form">
+				<Typography className="checkin-title" type="headline">
+					{i18n('step-2__title')}
+				</Typography>
 
-					<FormControl component="fieldset">
-						<FormGroup>
-							{this.props.passengers.map(passenger => (
-								<FormControlLabel
-									key={passenger.id}
-									control={
-										<Checkbox
-											onChange={this.handlePassengerChange}
-											value={passenger.id.toString()}
-										/>
-									}
-									label={passenger.name}
-								/>
-							))}
-						</FormGroup>
-					</FormControl>
+				<FormControl component="fieldset">
+					<FormGroup>
+						{this.props.passengers.map(passenger => (
+							<FormControlLabel
+								key={passenger.id}
+								control={
+									<Checkbox
+										onChange={this.handlePassengerChange}
+										value={passenger.id.toString()}
+									/>
+								}
+								label={passenger.name}
+							/>
+						))}
+					</FormGroup>
+				</FormControl>
 
-					<div className="checkin-bottomButtons checkin-bottomButtons_passengersChoosing">
-						<MUIButton className="checkin-bottomButtons__back" onClick={this.handleBack}>
-							{i18n('step-2__backButton')}
-						</MUIButton>
+				<div className="checkin-bottomButtons checkin-bottomButtons_passengersChoosing">
+					<MUIButton className="checkin-bottomButtons__back" onClick={this.handleBack}>
+						{i18n('step-2__backButton')}
+					</MUIButton>
 
-						<Button className="checkin-bottomButtons__next" disabled={!this.props.formIsValid} onClick={this.handleNext}>
-							{i18n('step-2__nextButton')}
-						</Button>
-					</div>
+					<Button className="checkin-bottomButtons__next" disabled={!this.props.formIsValid} onClick={this.handleNext}>
+						{i18n('step-2__nextButton')}
+					</Button>
 				</div>
-
-				<FlightInfo/>
 			</div>
-		</Fragment>;
+
+			<FlightInfo/>
+		</div>;
 	}
 }
 

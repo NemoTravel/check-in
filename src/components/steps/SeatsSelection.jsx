@@ -3,7 +3,9 @@ import MUIButton from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 import PropTypes from 'prop-types';
 import i18n from '@nemo.travel/i18n';
+
 import Button from 'components/ui/MainButton';
+import FlightInfo from 'components/FlightInfo';
 
 class SeatsSelection extends React.Component {
 	static propTypes = {
@@ -30,9 +32,9 @@ class SeatsSelection extends React.Component {
 	}
 
 	render() {
-		return (
-			<div className="checkin-seatsSelection">
-				<Typography className="checkin-title">
+		return <div className="checkin-seatsSelection">
+			<div className="checkin-seatsSelection-form">
+				<Typography className="checkin-title" type="headline">
 					{i18n('step-3__title')}
 				</Typography>
 
@@ -46,7 +48,9 @@ class SeatsSelection extends React.Component {
 					</Button>
 				</div>
 			</div>
-		);
+
+			<FlightInfo/>
+		</div>;
 	}
 }
 

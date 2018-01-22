@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-export const currentStepInitialState = 0;
+export const currentStepInitialState = 2;
 
 export const orderSearchingInitialState = {
 	lastName: 'GRIGORIEV',

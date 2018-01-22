@@ -71,6 +71,22 @@
 		}
 	}
 
+	&-seatsSelection {
+		display: flex;
+
+		.checkin-flightInfo {
+			flex-basis: 350px;
+		}
+
+		&-form {
+			padding: 20px;
+			margin-right: 20px;
+
+			flex: 1;
+			background: #fff;
+		}
+	}
+
 	&-bottomButtons {
 		text-align: right;
 		margin-top: 30px;
