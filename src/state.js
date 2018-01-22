@@ -15,11 +15,19 @@ export const passengersChoosingInitialState = {
 	passengers: {
 		1: {
 			id: 1,
-			name: 'GRIGORIEVA OLGA'
+			name: 'GRIGORIEVA OLGA',
+			gender: 'Женский',
+			birthDate: '11.11.1991',
+			documentNumber: '0123456789',
+			nationality: 'Российская Федерация'
 		},
 		2: {
 			id: 2,
-			name: 'GRIGORIEV OLEG'
+			name: 'GRIGORIEV OLEG',
+			gender: 'Мужской',
+			birthDate: '12.02.1990',
+			documentNumber: '9876543210',
+			nationality: 'Российская Федерация'
 		}
 	}
 };

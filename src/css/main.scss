@@ -85,6 +85,43 @@
 			flex: 1;
 			background: #fff;
 		}
+		
+		&-passenger {
+			position: relative;
+			background: #f7f7f7;
+
+			&:first-of-type {
+				&:before {
+					opacity: 0;
+				}
+			}
+
+			&__seat {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				position: absolute;
+				width: 100%;
+				color: #a0a0a0;
+			}
+
+			&-info {
+				padding: 0;
+				margin: 0;
+
+				&-item {
+					margin-bottom: 7px;
+					list-style-type: none;
+
+					&__title {
+						color: #a0a0a0;
+						font-size: 15px;
+						margin-bottom: 2px;
+					}
+				}
+			}
+		}
 	}
 
 	&-bottomButtons {
