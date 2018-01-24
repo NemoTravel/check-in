@@ -4,11 +4,17 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import PassengersChoosing from 'components/steps/PassengersChoosing';
-import { deselectPassenger, selectPassenger, confirmPassengers, clearPassengers } from 'store/passengersChoosing/actions';
+import {
+	deselectPassenger,
+	selectPassenger,
+	confirmPassengers,
+	clearPassengers
+} from 'store/passengersChoosing/actions';
 import { getPassengers, formIsValid } from 'store/passengersChoosing/selectors';
 
 class PassengersChoosingContainer extends React.Component {
 	static propTypes = {
+		isOpen: PropTypes.bool.isRequired,
 		formIsValid: PropTypes.bool.isRequired,
 		passengers: PropTypes.array.isRequired,
 		selectPassenger: PropTypes.func.isRequired,
@@ -19,6 +25,7 @@ class PassengersChoosingContainer extends React.Component {
 
 	render() {
 		return <PassengersChoosing
+			isOpen={this.props.isOpen}
 			passengers={this.props.passengers}
 			formIsValid={this.props.formIsValid}
 
@@ -34,7 +41,8 @@ export default connect(
 	state => {
 		return {
 			passengers: getPassengers(state),
-			formIsValid: formIsValid(state)
+			formIsValid: formIsValid(state),
+			isOpen: state.passengersChoosing.isOpen
 		};
 	},
 	dispatch => {

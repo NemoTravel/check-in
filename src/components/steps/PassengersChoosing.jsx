@@ -1,20 +1,18 @@
 import React from 'react';
+import Dialog, { DialogTitle, DialogContent, DialogActions } from 'material-ui/Dialog';
 import {
 	FormControl,
 	FormGroup,
 	FormControlLabel
 } from 'material-ui/Form';
+import Button from 'material-ui/Button';
 import Checkbox from 'material-ui/Checkbox';
-import MUIButton from 'material-ui/Button';
-import Typography from 'material-ui/Typography';
-import PropTypes from 'prop-types';
 import i18n from '@nemo.travel/i18n';
-
-import Button from 'components/ui/MainButton';
-import FlightInfo from 'components/FlightInfo';
+import PropTypes from 'prop-types';
 
 class PassengersChoosing extends React.Component {
 	static propTypes = {
+		isOpen: PropTypes.bool.isRequired,
 		formIsValid: PropTypes.bool.isRequired,
 		passengers: PropTypes.array.isRequired,
 		selectPassengerHandler: PropTypes.func.isRequired,
@@ -48,16 +46,25 @@ class PassengersChoosing extends React.Component {
 	}
 
 	shouldComponentUpdate(nextProps) {
-		return nextProps.formIsValid !== this.props.formIsValid || nextProps.passengers !== this.props.passengers;
+		return nextProps.formIsValid !== this.props.formIsValid ||
+			nextProps.passengers !== this.props.passengers ||
+			nextProps.isOpen !== this.props.isOpen;
 	}
 
 	render() {
-		return <div className="checkin-passengersChoosing">
-			<div className="checkin-passengersChoosing-form">
-				<Typography className="checkin-title" type="headline">
-					{i18n('step-2__title')}
-				</Typography>
+		return <Dialog
+			open={this.props.isOpen}
+			ignoreBackdropClick={true}
+			ignoreEscapeKeyUp={true}
+			maxWidth="xs"
+			onEntering={this.handleNext}
+			aria-labelledby="confirmation-dialog-title"
+		>
+			<DialogTitle id="confirmation-dialog-title">
+				{i18n('step-2__title')}
+			</DialogTitle>
 
+			<DialogContent>
 				<FormControl component="fieldset">
 					<FormGroup>
 						{this.props.passengers.map(passenger => (
@@ -74,20 +81,18 @@ class PassengersChoosing extends React.Component {
 						))}
 					</FormGroup>
 				</FormControl>
+			</DialogContent>
 
-				<div className="checkin-bottomButtons checkin-bottomButtons_passengersChoosing">
-					<MUIButton className="checkin-bottomButtons__back" onClick={this.handleBack}>
-						{i18n('step-2__backButton')}
-					</MUIButton>
+			<DialogActions>
+				<Button onClick={this.handleBack}>
+					{i18n('step-2__backButton')}
+				</Button>
 
-					<Button className="checkin-bottomButtons__next" disabled={!this.props.formIsValid} onClick={this.handleNext}>
-						{i18n('step-2__nextButton')}
-					</Button>
-				</div>
-			</div>
-
-			<FlightInfo/>
-		</div>;
+				<Button disabled={!this.props.formIsValid} onClick={this.handleNext} color="accent">
+					{i18n('step-2__nextButton')}
+				</Button>
+			</DialogActions>
+		</Dialog>;
 	}
 }
 

@@ -4,6 +4,20 @@ import { formIsValid } from 'store/passengersChoosing/selectors';
 export const SELECT_PASSENGER = 'action_select_passenger';
 export const DESELECT_PASSENGER = 'action_deselect_passenger';
 export const DESELECT_ALL_PASSENGER = 'action_deselect_all_passenger';
+export const OPEN_DIALOG = 'acion_open_dialog';
+export const CLOSE_DIALOG = 'acion_close_dialog';
+
+export const openDialog = () => {
+	return {
+		type: OPEN_DIALOG
+	};
+};
+
+export const closeDialog = () => {
+	return {
+		type: CLOSE_DIALOG
+	};
+};
 
 export const selectPassenger = passengerId => {
 	return {
@@ -28,7 +42,7 @@ export const deselectAllPassengers = () => {
 export const clearPassengers = () => {
 	return dispatch => {
 		dispatch(deselectAllPassengers());
-		dispatch(previousStep());
+		dispatch(closeDialog());
 	};
 };
 
