@@ -1,5 +1,5 @@
 import { formIsValid } from 'store/orderSearching/selectors';
-import { nextStep } from 'store/currentStep/actions';
+import { openDialog } from 'store/passengersChoosing/actions';
 
 export const CHANGE_LAST_NAME = 'action_change_last_name';
 export const CHANGE_TICKET_NUMBER = 'action_change_ticket_number';
@@ -39,7 +39,7 @@ export const searchOrder = () => {
 		const state = getState();
 
 		if (formIsValid(state)) {
-			dispatch(nextStep());
+			dispatch(openDialog());
 		}
 		else {
 			// form data is invalid

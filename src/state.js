@@ -29,5 +29,6 @@ export const passengersChoosingInitialState = {
 			documentNumber: '9876543210',
 			nationality: 'Российская Федерация'
 		}
-	}
+	},
+	isOpen: false
 };
