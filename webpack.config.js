@@ -19,7 +19,7 @@ const config = {
 	context: __dirname,
 
 	// Entry file.
-	entry: ['whatwg-fetch', './src/main'],
+	entry: ['babel-polyfill', 'whatwg-fetch', './src/main'],
 
 	// Watch for changes in file.
 	watch: isDevMode,

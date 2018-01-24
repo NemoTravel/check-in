@@ -8,15 +8,26 @@ import {
 } from 'store/passengersChoosing/actions';
 
 const passengersChoosingReducer = (state = passengersChoosingInitialState, action = {}) => {
+	let newSelectedPassengers = [];
+
 	switch (action.type) {
 		case SELECT_PASSENGER:
-			return { ...state, selectedPassengers: { ...state.selectedPassengers, [action.payload]: true } };
+			newSelectedPassengers = [...state.selectedPassengers];
+			newSelectedPassengers.push(parseInt(action.payload));
+
+			return { ...state, selectedPassengers: newSelectedPassengers };
 
 		case DESELECT_PASSENGER:
-			return { ...state, selectedPassengers: { ...state.selectedPassengers, [action.payload]: false } };
+			const passPayloadId = parseInt(action.payload);
+
+			newSelectedPassengers = state.selectedPassengers.filter(passId => {
+				return passId !== passPayloadId;
+			});
+
+			return { ...state, selectedPassengers: newSelectedPassengers };
 
 		case DESELECT_ALL_PASSENGER:
-			return { ...state, selectedPassengers: {} };
+			return { ...state, selectedPassengers: [] };
 
 		case OPEN_DIALOG:
 			return { ...state, isOpen: true };

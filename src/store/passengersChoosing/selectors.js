@@ -21,16 +21,5 @@ export const getPassengers = createSelector(
 
 export const formIsValid = createSelector(
 	[ getSelectedPassengers ],
-	state => {
-		let isValid = false;
-
-		for (const passId in state) {
-			if (state.hasOwnProperty(passId) && state[passId] === true) {
-				isValid = true;
-				break;
-			}
-		}
-
-		return isValid;
-	}
+	selectedPassenger => !!selectedPassenger.length
 );

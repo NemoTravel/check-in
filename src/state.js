@@ -10,7 +10,7 @@ export const orderSearchingInitialState = {
 };
 
 export const passengersChoosingInitialState = {
-	selectedPassengers: {},
+	selectedPassengers: [],
 	passengersIds: [1, 2],
 	passengers: {
 		1: {
