@@ -9,12 +9,14 @@ import Button from 'material-ui/Button';
 import Checkbox from 'material-ui/Checkbox';
 import i18n from '@nemo.travel/i18n';
 import PropTypes from 'prop-types';
+import { closeDialog } from '../../store/passengersChoosing/actions';
 
 class PassengersChoosing extends React.Component {
 	static propTypes = {
 		isOpen: PropTypes.bool.isRequired,
 		formIsValid: PropTypes.bool.isRequired,
 		passengers: PropTypes.array.isRequired,
+		closeDialogHandler: PropTypes.func.isRequired,
 		selectPassengerHandler: PropTypes.func.isRequired,
 		deselectPassengerHandler: PropTypes.func.isRequired,
 		confirmPassengersHandler: PropTypes.func.isRequired,
@@ -26,6 +28,7 @@ class PassengersChoosing extends React.Component {
 		this.handleNext = this.handleNext.bind(this);
 		this.handleBack = this.handleBack.bind(this);
 		this.handlePassengerChange = this.handlePassengerChange.bind(this);
+		this.handleEnteringDialog = this.handleEnteringDialog.bind(this);
 	}
 
 	handleNext() {
@@ -33,6 +36,11 @@ class PassengersChoosing extends React.Component {
 	}
 
 	handleBack() {
+		this.props.closeDialogHandler();
+		this.props.clearPassengersHandler();
+	}
+
+	handleEnteringDialog() {
 		this.props.clearPassengersHandler();
 	}
 
@@ -57,7 +65,7 @@ class PassengersChoosing extends React.Component {
 			ignoreBackdropClick={true}
 			ignoreEscapeKeyUp={true}
 			maxWidth="xs"
-			onEntering={this.handleNext}
+			onEntering={this.handleEnteringDialog}
 			aria-labelledby="confirmation-dialog-title"
 		>
 			<DialogTitle id="confirmation-dialog-title">

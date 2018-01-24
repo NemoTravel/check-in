@@ -8,7 +8,8 @@ import {
 	deselectPassenger,
 	selectPassenger,
 	confirmPassengers,
-	clearPassengers
+	clearPassengers,
+	closeDialog
 } from 'store/passengersChoosing/actions';
 import { getPassengers, formIsValid } from 'store/passengersChoosing/selectors';
 
@@ -20,6 +21,7 @@ class PassengersChoosingContainer extends React.Component {
 		selectPassenger: PropTypes.func.isRequired,
 		deselectPassenger: PropTypes.func.isRequired,
 		confirmPassengers: PropTypes.func.isRequired,
+		closeDialog: PropTypes.func.isRequired,
 		clearPassengers: PropTypes.func.isRequired
 	};
 
@@ -29,6 +31,7 @@ class PassengersChoosingContainer extends React.Component {
 			passengers={this.props.passengers}
 			formIsValid={this.props.formIsValid}
 
+			closeDialogHandler={this.props.closeDialog}
 			selectPassengerHandler={this.props.selectPassenger}
 			deselectPassengerHandler={this.props.deselectPassenger}
 			confirmPassengersHandler={this.props.confirmPassengers}
@@ -48,6 +51,7 @@ export default connect(
 	dispatch => {
 		return {
 			confirmPassengers: bindActionCreators(confirmPassengers, dispatch),
+			closeDialog: bindActionCreators(closeDialog, dispatch),
 			selectPassenger: bindActionCreators(selectPassenger, dispatch),
 			deselectPassenger: bindActionCreators(deselectPassenger, dispatch),
 			clearPassengers: bindActionCreators(clearPassengers, dispatch)

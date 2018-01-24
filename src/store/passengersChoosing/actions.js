@@ -42,7 +42,6 @@ export const deselectAllPassengers = () => {
 export const clearPassengers = () => {
 	return dispatch => {
 		dispatch(deselectAllPassengers());
-		dispatch(closeDialog());
 	};
 };
 
@@ -51,6 +50,7 @@ export const confirmPassengers = () => {
 		const state = getState();
 
 		if (formIsValid(state)) {
+			dispatch(closeDialog());
 			dispatch(nextStep());
 		}
 		else {
